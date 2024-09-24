@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace Drones
 {
     internal static class Program
@@ -14,18 +16,31 @@ namespace Drones
 
             // Création de la flotte de drones
             List<Drone> fleet= new List<Drone>();
+            Random rmds = new Random();
 
-            List<Building> buildings= new List<Building>();
 
-            Drone drone = new Drone("Joe",100,100);
-            Building building = new Building(100, 50, 8, 10, "Blue");
 
-            fleet.Add(drone);
-            buildings.Add(building);
+            try
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Drone drone = new Drone("Joe", rmds.Next(400), rmds.Next(400));
+                    fleet.Add(drone);
+                }
+                if (fleet.Count > 10)
+                {
+                    throw new Exception("Pablo");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
             // Démarrage
+            Application.Run(new AirSpace(fleet));
 
-            Application.Run(new AirSpace(fleet, buildings));
+            
         }
     }
 }

@@ -7,10 +7,10 @@ namespace Drones
     {
         Random alea = new Random();
 
-        public static int maxCharge;                  // La charge actuelle de la batterie
+        public static int maxCharge;                    // La charge actuelle de la batterie
         private string _name;                           // Un nom
         private int _x ;                                // Position en X depuis la gauche de l'espace aérien
-        private int _y;                                  // Position en Y depuis le haut de l'espace aérien
+        private int _y;                                 // Position en Y depuis le haut de l'espace aérien
 
         public Drone(string nom, int X, int Y) 
         { 
@@ -35,7 +35,7 @@ namespace Drones
         {
             _x += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
             _y += alea.Next(-2, 3);                     // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
-            maxCharge--;                                  // Il a dépensé de l'énergie
+            maxCharge--;                                // Il a dépensé de l'énergie
         }
 
     }
