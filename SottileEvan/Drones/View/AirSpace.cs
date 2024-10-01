@@ -14,7 +14,7 @@ namespace Drones
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
-
+        private Pen noFlyBrush = new Pen(new SolidBrush(Color.Red), 5);
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet)
         {
@@ -39,15 +39,16 @@ namespace Drones
                 drone.Render(airspace);
             }
 
+            airspace.Graphics.DrawRectangle(noFlyBrush, new Rectangle(200, 100, 200, 200));
             airspace.Render();
         }
-
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
         private void Update(int interval)
         {
             foreach (Drone drone in fleet)
             {
                 drone.Update(interval);
+                
             }
         }
 

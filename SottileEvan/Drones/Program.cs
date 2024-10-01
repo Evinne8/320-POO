@@ -1,7 +1,7 @@
 using System.Security.Cryptography.X509Certificates;
-
 namespace Drones
 {
+    
     internal static class Program
     {
         /// <summary>
@@ -18,8 +18,17 @@ namespace Drones
             List<Drone> fleet= new List<Drone>();
             Random rmds = new Random();
 
-
-
+            Rectangle r1 = new Rectangle(10, 10, 100, 150);
+            Rectangle r2 = new Rectangle(30, 100, 150, 100);
+            Rectangle r3 = new Rectangle(200, 300, 50, 50);
+            if (r1.IntersectsWith(r2))
+            {
+                Console.Write("oue bien le sang \n");
+            }
+            if (!(r1.IntersectsWith(r3)))
+            {
+                Console.Write("non pas bien le sang \n");
+            }
             try
             {
                 for (int i = 0; i <= 10; i++)

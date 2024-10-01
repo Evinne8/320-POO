@@ -1,6 +1,6 @@
 using Drones;
 
-namespace TestProject1
+namespace TestProject2
 {
     [TestClass]
     public class UnitTest1
@@ -9,7 +9,7 @@ namespace TestProject1
         public void Test_that_drone_is_taking_orders()
         {
             // Arrange
-            Drone drone = new Drone("hello",500, 500);
+            Drone drone = new Drone("hello", 500, 500);
 
             // Act
             EvacuationState state = drone.GetEvacuationState();
@@ -18,7 +18,7 @@ namespace TestProject1
             Assert.AreEqual(EvacuationState.Free, state);
 
             // Arrange a no-fly zone around the drone
-            bool response = drone.Evacuate(new System.Drawing.Rectangle(400, 400, 200, 200));
+            bool response = drone.Evacuate(new System.Drawing.Rectangle(200, 100, 200, 200));
 
             // Assert
             Assert.IsFalse(response); // because the zone is around the drone
